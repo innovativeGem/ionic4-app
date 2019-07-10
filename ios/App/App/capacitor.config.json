@@ -1,0 +1,7 @@
+{
+  "appId": "com.deakingeniealpha",
+  "appName": "ionic4-practice",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

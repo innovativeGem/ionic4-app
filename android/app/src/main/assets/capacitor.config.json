@@ -1,0 +1,7 @@
+{
+  "appId": "com.deakin-genie-alpha",
+  "appName": "ionic4-practice",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
