@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { PlacesService } from '../../places.service';
+import { Place } from '../../place.model';
 
 @Component({
   selector: 'app-place-detail',
@@ -8,13 +11,23 @@ import { NavController } from '@ionic/angular';
 })
 export class PlaceDetailPage implements OnInit {
 
-  constructor(private navCtrl:NavController) { }
+  place: Place;
+
+  constructor(private route:ActivatedRoute, private navCtrl:NavController, private placesService: PlacesService) { }
 
   handleBackNav() {
     this.navCtrl.navigateBack("/places/tabs/discover");
   }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      if(!paramMap.has("placeId")){
+        this.handleBackNav();
+        return;
+      }
+
+      this.place = this.placesService.getPlace(paramMap.get("placeId"));
+    })
   }
 
 }
